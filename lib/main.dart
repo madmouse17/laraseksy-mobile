@@ -3,8 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laraseksy_sekali/Routers/routeName.dart';
 import 'package:laraseksy_sekali/Routers/routes.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
+  initializeDateFormatting('id_ID', null);
+  Intl.defaultLocale = 'id_ID';
   runApp(const MyApp());
 }
 

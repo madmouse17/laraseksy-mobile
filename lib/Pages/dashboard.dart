@@ -32,7 +32,7 @@ class DashboardScreen extends StatelessWidget {
                         border: Border.all(
                             color:
                                 (index + 1 == int.parse(dt.dayscurrent.value))
-                                    ? Colors.black
+                                    ? Colors.green
                                     : fiveColor),
                       ),
                       child: Column(
@@ -40,18 +40,24 @@ class DashboardScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(dt.months.value.toString(),
+                              Text('${dt.months.value} - ',
                                   style: TextStyle(
                                       color: dt.listday[index] == "Minggu"
                                           ? Colors.red
-                                          : Colors.black)),
-                              Text(" - "),
+                                          : (index + 1 ==
+                                                  int.parse(
+                                                      dt.dayscurrent.value))
+                                              ? Colors.green
+                                              : Colors.black)),
                               Text(
                                 dt.years.value.toString(),
                                 style: TextStyle(
                                     color: dt.listday[index] == "Minggu"
                                         ? Colors.red
-                                        : Colors.black),
+                                        : (index + 1 ==
+                                                int.parse(dt.dayscurrent.value))
+                                            ? Colors.green
+                                            : Colors.black),
                               ),
                             ],
                           ),
@@ -62,14 +68,20 @@ class DashboardScreen extends StatelessWidget {
                                 fontSize: Get.mediaQuery.size.height * 0.02,
                                 color: dt.listday[index] == "Minggu"
                                     ? Colors.red
-                                    : Colors.black),
+                                    : (index + 1 ==
+                                            int.parse(dt.dayscurrent.value))
+                                        ? Colors.green
+                                        : Colors.black),
                           ),
                           Text(
                             dt.listday[index],
                             style: TextStyle(
                                 color: dt.listday[index] == "Minggu"
                                     ? Colors.red
-                                    : Colors.black),
+                                    : (index + 1 ==
+                                            int.parse(dt.dayscurrent.value))
+                                        ? Colors.green
+                                        : Colors.black),
                           ),
                         ],
                       ),
@@ -95,8 +107,14 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: IconButton(
-          onPressed: () => dt.scrollto(), icon: Icon(Icons.next_plan)),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text('to Days'),
+          IconButton(
+              onPressed: () => dt.scrollto(), icon: Icon(Icons.next_plan)),
+        ],
+      ),
     );
   }
 }

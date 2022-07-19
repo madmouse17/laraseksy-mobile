@@ -11,7 +11,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: routeName.dashboard,
-      page: () => const DashboardScreen(),
+      page: () => DashboardScreen(),
     )
   ];
 }
